@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   Server,
@@ -14,24 +14,34 @@ import {
   Shield,
   ChevronLeft,
   ChevronRight,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const navigation = [
-  { name: "Dashboard", icon: LayoutDashboard, href: "#", current: true },
-  { name: "Machines Virtuelles", icon: Server, href: "#", current: false },
-  { name: "Stockage", icon: HardDrive, href: "#", current: false },
-  { name: "Réseau", icon: Network, href: "#", current: false },
-  { name: "Monitoring", icon: Activity, href: "#", current: false },
-  { name: "Base de données", icon: Database, href: "#", current: false },
-  { name: "Terminal", icon: Terminal, href: "#", current: false },
-  { name: "Sécurité", icon: Shield, href: "#", current: false },
-  { name: "Paramètres", icon: Settings, href: "#", current: false },
-]
+  { name: "Dashboard", icon: LayoutDashboard, href: "/home", current: true },
+  { name: "Machines Virtuelles", icon: Server, href: "/vm", current: false },
+  { name: "Stockage", icon: HardDrive, href: "/storage", current: false },
+  { name: "Réseau", icon: Network, href: "/network", current: false },
+  { name: "Monitoring", icon: Activity, href: "/monitoring", current: false },
+  {
+    name: "Base de données",
+    icon: Database,
+    href: "/database",
+    current: false,
+  },
+  { name: "Terminal", icon: Terminal, href: "/terminal", current: false },
+  { name: "Sécurité", icon: Shield, href: "/security", current: false },
+  { name: "Paramètres", icon: Settings, href: "/settings", current: false },
+];
 
 export function Sidebar() {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <TooltipProvider delayDuration={0}>
@@ -47,7 +57,9 @@ export function Sidebar() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10">
                 <Server className="h-5 w-5 text-cyan-500" />
               </div>
-              <span className="text-lg font-semibold text-foreground">Aether VE</span>
+              <span className="text-lg font-semibold text-foreground">
+                Aether VE
+              </span>
             </div>
           )}
           {collapsed && (
@@ -89,13 +101,19 @@ export function Sidebar() {
           className="absolute -right-3 top-20 h-6 w-6 rounded-full border border-border bg-card"
           onClick={() => setCollapsed(!collapsed)}
         >
-          {collapsed ? <ChevronRight className="h-3 w-3" /> : <ChevronLeft className="h-3 w-3" />}
+          {collapsed ? (
+            <ChevronRight className="h-3 w-3" />
+          ) : (
+            <ChevronLeft className="h-3 w-3" />
+          )}
         </Button>
 
         <div className="border-t border-border p-4">
           {!collapsed && (
             <div className="rounded-lg bg-cyan-500/5 p-3">
-              <p className="text-xs font-medium text-cyan-500">Hypervisor Status</p>
+              <p className="text-xs font-medium text-cyan-500">
+                Hypervisor Status
+              </p>
               <div className="mt-2 flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -108,5 +126,5 @@ export function Sidebar() {
         </div>
       </aside>
     </TooltipProvider>
-  )
+  );
 }

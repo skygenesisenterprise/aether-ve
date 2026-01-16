@@ -11,13 +11,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "vault.skygenesisenterprise.com",
+        hostname: "ve.skygenesisenterprise.com",
         port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "vault.skygenesisenterprise.net",
+        hostname: "ve.skygenesisenterprise.net",
         port: "",
         pathname: "/**",
       },
