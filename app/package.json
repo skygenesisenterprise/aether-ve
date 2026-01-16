@@ -1,7 +1,7 @@
 {
-  "name": "@aether-vault/app",
+  "name": "@aether-ve/app",
   "version": "0.1.0",
-  "description": "Frontend application for Aether Vault",
+  "description": "Frontend application for Aether VE",
   "private": true,
   "type": "module",
   "scripts": {
